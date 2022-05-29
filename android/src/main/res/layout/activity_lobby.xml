@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:id="@+id/rl_lobby"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".LobbyActivity"
+    android:background="@android:color/background_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true"
+        android:weightSum="2">
+
+        <RelativeLayout
+            android:id="@+id/left_column"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <include layout="@layout/frame_lobby_menu" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/right_column"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <include layout="@layout/frame_lobby_users"/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+

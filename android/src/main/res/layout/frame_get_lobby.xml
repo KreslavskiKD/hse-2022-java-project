@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_get_lobby"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:layout_centerHorizontal="true"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/login_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:inputType="textVisiblePassword"
+        android:hint="Lobby Id"/>
+
+    <Button
+        android:id="@+id/get_in_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Get in"
+        android:text="Get in"
+        android:textStyle="normal"
+        android:textAllCaps="true"
+        android:background="#1976D2"
+        android:textColor="#fff"/>
+
+
+</LinearLayout>

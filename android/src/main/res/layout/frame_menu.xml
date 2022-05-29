@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:layout_centerHorizontal="true"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    android:paddingTop="16dp">
+
+    <Button
+        android:id="@+id/join_1v1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Join 1v1"
+        android:text="Join 1v1"
+        android:textStyle="normal"
+        android:textAllCaps="false"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"/>
+
+    <Button
+        android:id="@+id/join_2v2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Join 2v2"
+        android:text="Join 2v2"
+        android:textStyle="normal"
+        android:textAllCaps="false"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"/>
+
+    <Button
+        android:id="@+id/join_private"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Join Private"
+        android:text="Join Private"
+        android:textStyle="normal"
+        android:textAllCaps="false"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        />
+
+    <Button
+        android:id="@+id/main_menu_quit_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Quit"
+        android:text="Quit"
+        android:textStyle="normal"
+        android:textAllCaps="false"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"/>
+
+</LinearLayout>
