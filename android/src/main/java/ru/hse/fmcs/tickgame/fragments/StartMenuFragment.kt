@@ -8,6 +8,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ru.hse.fmcs.tickgame.R
+import ru.hse.fmcs.tickgame.models.UIState
 import ru.hse.fmcs.tickgame.viewmodels.StartActivityViewModel
 
 class StartMenuFragment : Fragment() {
@@ -20,7 +21,20 @@ class StartMenuFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.frame_menu_start, container, false)
 
+        val loginBtn : Button = view.findViewById(R.id.goto_login_btn)
+        val registerBtn : Button = view.findViewById(R.id.goto_register_btn)
+        val quitBtn : Button = view.findViewById(R.id.quit_btn)
+        quitBtn.setOnClickListener {
+            activity?.finish()
+        }
 
+        loginBtn.setOnClickListener {
+            viewModel.setUiState(UIState.Login())
+        }
+
+        registerBtn.setOnClickListener {
+            viewModel.setUiState(UIState.Register())
+        }
 
         return view
     }

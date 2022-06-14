@@ -26,19 +26,22 @@ class UserAuthStateFlow(var context: Context)  {
             // actual login with account
             _stateFlow.value = AuthState.Authenticated(currentUser)
         }
-        // TODO remove this line later
-        // _stateFlow.value = AuthState.Authenticated(User("IDon'tWorkYet", "IDon'tWorkYet")) // fill with temporary login
     }
 
     fun login(user: User) {
         Log.d(TAG, "login")
         // TODO("here will be some logging in later")
-        // we need a parallel login service
-//        val fakeUser = user // User("IDon'tWorkYet", "IDon'tWorkYet") // fill with temporary login
         _stateFlow.value = AuthState.Authenticated(user)
         Log.d(TAG, "login stateFlow value set")
         // if it was successful we have to cache it
 //        setCache(fakeUser)
+    }
+
+    fun register(user: User) {
+        Log.d(TAG, "login")
+        // TODO("here will be some registering in later")
+        _stateFlow.value = AuthState.Authenticated(user)
+        Log.d(TAG, "register stateFlow value set")
     }
 
     private suspend fun hasCached(): Boolean = withContext(Dispatchers.IO) {

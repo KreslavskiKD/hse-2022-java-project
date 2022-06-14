@@ -2,15 +2,21 @@ package ru.hse.fmcs.tickgame
 
 import android.os.Bundle
 import android.view.Window
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import ru.hse.fmcs.tickgame.viewmodels.LobbyActivityViewModel
 
 
 class LobbyActivity : AppCompatActivity() {
 
+    private val viewModel: LobbyActivityViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        supportActionBar!!.hide()
+        try {
+            supportActionBar!!.hide()
+        } catch (e: NullPointerException) {}
         setContentView(R.layout.activity_lobby)
 
     }

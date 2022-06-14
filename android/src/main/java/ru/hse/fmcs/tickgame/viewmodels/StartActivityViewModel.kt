@@ -23,7 +23,6 @@ class StartActivityViewModel(application: Application) : AndroidViewModel(applic
     private val uasf = UserAuthStateFlow(getApplication())
     private val authStateFlow: StateFlow<AuthState> = uasf.stateFlow
     val currentUser = MutableLiveData<User>()
-//    val pressedBtns = MutableLiveData<User>()
 
     private var curUser : User = noUser
 
@@ -44,9 +43,8 @@ class StartActivityViewModel(application: Application) : AndroidViewModel(applic
                     is AuthState.Unauthenticated -> {
                         Log.d(TAG, "Unauthenticated")
 
-                        _uiState.emit(UIState.Login())
+                        _uiState.emit(UIState.Start())
                         Log.d(TAG, "Unauthenticated after emit")
-//                        waitForLogin()
                     }
                 }
             }
@@ -61,12 +59,24 @@ class StartActivityViewModel(application: Application) : AndroidViewModel(applic
         }
     }
 
+    suspend fun register(user: User) {
+        Log.d(TAG, "register")
+        currentCoroutineContext().launchUnscoped {
+            uasf.register(user)
+        }
+    }
+
     fun setUserData(user: User) {
         //// TODO CRITICAL remove this log after release
         Log.d(TAG, "setUserData: login - ${user.login}, password - ${user.password}")
         //// TODO ---------------------------------------
         currentUser.value = user
     }
+
+    fun setUiState(state: UIState) = viewModelScope.launch {
+            _uiState.emit(state)
+        }
+
 
     companion object {
         const val TAG = "StartActivityViewModel"

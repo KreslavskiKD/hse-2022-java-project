@@ -21,6 +21,7 @@
             android:name=".LobbyActivity"
             android:exported="false"
             android:label="@string/title_activity_lobby"
+            android:screenOrientation="landscape"
             android:theme="@style/NoActionBar" />
         <activity
             android:name=".StartActivity"

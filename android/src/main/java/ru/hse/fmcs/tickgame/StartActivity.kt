@@ -18,11 +18,6 @@ class StartActivity : AppCompatActivity() {
         supportActionBar!!.hide()
 
         setContentView(R.layout.activity_start)
-//        val button : Button= findViewById(R.id.go_to_game)
-//        button.setOnClickListener {
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//        }
         val viewModel : StartActivityViewModel by viewModels()
 
         Log.d(TAG, "Before launch")
