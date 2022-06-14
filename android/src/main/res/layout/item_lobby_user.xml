@@ -19,5 +19,6 @@
         android:textAlignment="center"
         tools:text="User_nickname"
         android:text="User_nickname"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:textColor="?attr/text_color"/>
 </FrameLayout>

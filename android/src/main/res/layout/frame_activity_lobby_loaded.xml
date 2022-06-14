@@ -6,15 +6,17 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:layout_centerInParent="true"
-    android:weightSum="2">
+    android:weightSum="2"
+    android:background="?attr/background_color">
 
     <RelativeLayout
         android:id="@+id/left_column"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="?attr/background_color">
 
-        <include layout="@layout/frame_lobby_menu" />
+<!--        <include layout="@layout/frame_lobby_menu" />-->
 
     </RelativeLayout>
 
@@ -23,9 +25,10 @@
         android:id="@+id/right_column"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="?attr/background_color">
 
-        <include layout="@layout/frame_lobby_users"/>
+<!--        <include layout="@layout/frame_lobby_users"/>-->
 
     </RelativeLayout>
 

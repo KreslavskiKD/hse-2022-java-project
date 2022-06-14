@@ -11,7 +11,8 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
-    android:paddingTop="16dp">
+    android:paddingTop="16dp"
+    android:background="?attr/background_color">
 
     <Button
         android:id="@+id/join_1v1"
@@ -20,6 +21,7 @@
         tools:text="Join 1v1"
         android:text="Join 1v1"
         android:textStyle="normal"
+        android:textColor="?attr/text_color"
         android:textAllCaps="false"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
@@ -32,6 +34,7 @@
         android:layout_height="wrap_content"
         tools:text="Join 2v2"
         android:text="Join 2v2"
+        android:textColor="?attr/text_color"
         android:textStyle="normal"
         android:textAllCaps="false"
         android:paddingLeft="16dp"
@@ -45,6 +48,7 @@
         android:layout_height="wrap_content"
         tools:text="Join Private"
         android:text="Join Private"
+        android:textColor="?attr/text_color"
         android:textStyle="normal"
         android:textAllCaps="false"
         android:paddingLeft="16dp"
@@ -59,6 +63,7 @@
         android:layout_height="wrap_content"
         tools:text="Quit"
         android:text="Quit"
+        android:textColor="?attr/text_color"
         android:textStyle="normal"
         android:textAllCaps="false"
         android:paddingLeft="16dp"

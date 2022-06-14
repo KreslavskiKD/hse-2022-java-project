@@ -1,11 +1,11 @@
 package ru.hse.fmcs.tickgame
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Window
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.lifecycleScope
 import ru.hse.fmcs.tickgame.fragments.*
 import ru.hse.fmcs.tickgame.models.UIState
@@ -15,8 +15,15 @@ class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        supportActionBar!!.hide()
+        try {
+            supportActionBar!!.hide()
+        } catch (e : NullPointerException) {}
 
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            setTheme(R.style.Theme_Dark)
+        } else {
+            setTheme(R.style.Theme_Light)
+        }
         setContentView(R.layout.activity_start)
         val viewModel : StartActivityViewModel by viewModels()
 
@@ -26,12 +33,6 @@ class StartActivity : AppCompatActivity() {
             viewModel.uiState.collect {
                 Log.d(TAG, "In collect")
                 when (it) {
-                    is UIState.GameLobby -> {
-                        Log.d(TAG, "GameLobby")
-                        val intent = Intent(this@StartActivity, LobbyActivity::class.java)
-                        // TODO some additional information should be added to intent later
-                        startActivity(intent)
-                    }
                     is UIState.ChooseLobby -> {
                         Log.d(TAG, "ChooseLobby")
 

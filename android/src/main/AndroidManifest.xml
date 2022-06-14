@@ -22,11 +22,12 @@
             android:exported="false"
             android:label="@string/title_activity_lobby"
             android:screenOrientation="landscape"
-            android:theme="@style/NoActionBar" />
+            android:theme="@style/Theme.Light" />
         <activity
             android:name=".StartActivity"
             android:exported="true"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,7 +39,9 @@
             android:banner="@drawable/app_banner"
             android:icon="@drawable/app_icon"
             android:logo="@drawable/app_icon"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.Light">
+        </activity>
     </application>
 
 </manifest>

@@ -11,7 +11,8 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
-    android:paddingTop="16dp">
+    android:paddingTop="16dp"
+    android:background="?attr/background_color">
 
     <EditText
         android:id="@+id/reg_login_edit_text"
@@ -23,7 +24,8 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:paddingTop="16dp"/>
+        android:paddingTop="16dp"
+        android:textColor="?attr/text_color"/>
 
     <EditText
         android:id="@+id/reg_password_edit_text"
@@ -35,7 +37,8 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:paddingTop="16dp"/>
+        android:paddingTop="16dp"
+        android:textColor="?attr/text_color"/>
 
     <EditText
         android:id="@+id/reg_password_edit_text_repeat"
@@ -47,7 +50,8 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:paddingTop="16dp"/>
+        android:paddingTop="16dp"
+        android:textColor="?attr/text_color"/>
 
     <Button
         android:id="@+id/register_btn"
@@ -58,16 +62,17 @@
         android:textStyle="normal"
         android:textAllCaps="true"
         android:background="#1976D2"
-        android:textColor="#fff"
+        android:textColor="?attr/text_color"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:paddingTop="16dp"/>
+        android:paddingTop="16dp" />
     <TextView
         android:id="@+id/txtInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        tools:text="This name is already taken"/>
+        tools:text="This name is already taken"
+        android:textColor="?attr/text_color"/>
 
 </LinearLayout>

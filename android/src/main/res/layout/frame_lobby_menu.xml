@@ -12,7 +12,8 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
-    android:paddingTop="16dp">
+    android:paddingTop="16dp"
+    android:background="?attr/background_color">
 
     <Button
         android:id="@+id/force_start_btn"
@@ -20,6 +21,7 @@
         android:layout_height="wrap_content"
         tools:text="Force Start"
         android:text="Force Start"
+        android:textColor="?attr/text_color"
         android:textStyle="normal"
         android:textAllCaps="false"
         android:paddingLeft="16dp"
@@ -33,6 +35,7 @@
         android:layout_height="wrap_content"
         tools:text="Quit"
         android:text="Quit"
+        android:textColor="?attr/text_color"
         android:textStyle="normal"
         android:textAllCaps="false"
         android:paddingLeft="16dp"
