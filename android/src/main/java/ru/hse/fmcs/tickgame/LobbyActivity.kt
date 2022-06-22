@@ -23,6 +23,8 @@ class LobbyActivity : AppCompatActivity() {
         try {
             supportActionBar!!.hide()
         } catch (e: NullPointerException) {}
+
+
         setContentView(R.layout.activity_lobby)
 
     }

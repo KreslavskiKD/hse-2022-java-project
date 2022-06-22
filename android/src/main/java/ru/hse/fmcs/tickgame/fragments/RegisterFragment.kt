@@ -10,8 +10,6 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.soywiz.korio.async.launch
-import kotlinx.coroutines.Dispatchers
 import ru.hse.fmcs.tickgame.R
 import ru.hse.fmcs.tickgame.data.User
 import ru.hse.fmcs.tickgame.viewmodels.StartActivityViewModel
@@ -39,9 +37,7 @@ class RegisterFragment : Fragment() {
             val password = passwordTextField.text.toString()
             val repPassword = repeatPasswordTextField.text.toString()
             if (!(login == "" || password == "") && repPassword == password) {
-                launch(Dispatchers.Default) {
-                    viewModel.register(User(login, password))
-                }
+                viewModel.register(User(login, password))
             } else if (repPassword != password) {
                 info.text = "Passwords don't match"
             }

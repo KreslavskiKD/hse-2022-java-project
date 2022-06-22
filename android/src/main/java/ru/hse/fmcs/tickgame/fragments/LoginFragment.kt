@@ -9,7 +9,6 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.soywiz.korio.async.launch
 import kotlinx.coroutines.Dispatchers
 import ru.hse.fmcs.tickgame.R
 import ru.hse.fmcs.tickgame.data.User
@@ -36,9 +35,7 @@ class LoginFragment : Fragment() {
             val login = loginTextField.text.toString()
             val password = passwordTextField.text.toString()
             if (!(login == "" || password == "")) {
-                launch(Dispatchers.Default) {
-                    viewModel.login(User(login, password))
-                }
+                viewModel.login(User(login, password))
             }
         }
 

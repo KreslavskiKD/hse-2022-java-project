@@ -5,12 +5,11 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.soywiz.korio.async.launch
-import com.soywiz.korio.async.launchUnscoped
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import ru.hse.fmcs.tickgame.data.User
 import ru.hse.fmcs.tickgame.data.noUser
 import ru.hse.fmcs.tickgame.models.AuthState
@@ -52,16 +51,16 @@ class StartActivityViewModel(application: Application) : AndroidViewModel(applic
 
     }
 
-    suspend fun login(user: User) {
+    fun login(user: User) {
         Log.d(TAG, "login")
-        currentCoroutineContext().launchUnscoped {
+        viewModelScope.launch {
             uasf.login(user)
         }
     }
 
-    suspend fun register(user: User) {
+    fun register(user: User) {
         Log.d(TAG, "register")
-        currentCoroutineContext().launchUnscoped {
+        viewModelScope.launch {
             uasf.register(user)
         }
     }
