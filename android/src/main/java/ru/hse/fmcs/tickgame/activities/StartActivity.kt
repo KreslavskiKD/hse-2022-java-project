@@ -1,4 +1,4 @@
-package ru.hse.fmcs.tickgame
+package ru.hse.fmcs.tickgame.activities
 
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.lifecycleScope
+import ru.hse.fmcs.tickgame.R
 import ru.hse.fmcs.tickgame.fragments.*
 import ru.hse.fmcs.tickgame.models.UIState
 import ru.hse.fmcs.tickgame.viewmodels.StartActivityViewModel

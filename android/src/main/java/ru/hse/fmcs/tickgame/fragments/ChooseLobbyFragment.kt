@@ -9,8 +9,8 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import ru.hse.fmcs.tickgame.LobbyActivity
 import ru.hse.fmcs.tickgame.R
+import ru.hse.fmcs.tickgame.activities.RoomActivity
 import ru.hse.fmcs.tickgame.viewmodels.LobbyActivityViewModel
 
 class ChooseLobbyFragment : Fragment() {
@@ -32,7 +32,7 @@ class ChooseLobbyFragment : Fragment() {
             // connect to lobby somehow
             // or maybe lobbyId should be transfered to LobbyActivity and used there to connect
             // if successful go to Lobby activity
-            val intent = Intent(activity, LobbyActivity::class.java)
+            val intent = Intent(activity, RoomActivity::class.java)
             // TODO some additional information should be added to intent later
             startActivity(intent)
 

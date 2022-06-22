@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".LobbyActivity"
+    tools:context=".activities.LobbyActivity"
     android:background="?attr/background_color">
 
 </RelativeLayout>

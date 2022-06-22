@@ -1,10 +1,11 @@
-package ru.hse.fmcs.tickgame
+package ru.hse.fmcs.tickgame.activities
 
 import android.os.Bundle
 import android.view.Window
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import ru.hse.fmcs.tickgame.R
 import ru.hse.fmcs.tickgame.viewmodels.LobbyActivityViewModel
 
 

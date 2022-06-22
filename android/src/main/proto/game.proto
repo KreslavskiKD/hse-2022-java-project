@@ -1,0 +1,64 @@
+syntax = "proto3";
+option java_package = "ru.hse.fmcs";
+
+import "game_object.proto";
+import "google/protobuf/empty.proto";
+
+
+message GameEvent {
+  oneof event {
+    GameStateResponse gameStateResponse = 1;
+    GameFinishedEvent gameFinishedEvent = 2;
+    PlayerLostEvent playerLostEvent = 3;
+  }
+}
+
+message JoinToGameRequest {
+  string login = 1;
+  string gameId = 2;
+}
+
+message GameFinishedEvent {
+  string reason = 1;
+  // You take (something) place
+}
+
+message PlayerMovesResponse {
+  repeated Move playerMove = 1;
+}
+
+message PlayerLostEvent {
+  string playerLogin = 1;
+}
+
+message AttackRequest{
+  BlockCoordinate start = 1;
+  BlockCoordinate end = 2;
+  bool is50 = 3;
+  Player player = 4;
+}
+
+message ClearAttacksRequest {
+  string playerLogin = 1;
+}
+
+message SurrenderRequest {
+  string playerLogin = 1;
+}
+
+message MovesRequest {
+  string playerLogin = 1;
+}
+
+message generateGameStateRequest {
+  int32 height = 1;
+  int32 width  = 2;
+  int32 countPlayers = 3;
+}
+
+service GameService {
+  rpc joinToGame(JoinToGameRequest) returns (stream GameEvent);
+  rpc attackBlock(AttackRequest) returns (PlayerMovesResponse);
+  rpc clearAttacks(ClearAttacksRequest) returns (PlayerMovesResponse);
+  rpc surrender(SurrenderRequest) returns (google.protobuf.Empty);
+}
