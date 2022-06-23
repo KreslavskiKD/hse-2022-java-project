@@ -12,7 +12,7 @@
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
     android:paddingTop="16dp"
-    android:background="?attr/background_color">
+    android:background="@color/our_black">
 
 <!--    <Button-->
 <!--        android:id="@+id/join_1v1"-->
@@ -28,19 +28,20 @@
 <!--        android:paddingBottom="16dp"-->
 <!--        android:paddingTop="16dp"/>-->
 
-<!--    <Button-->
-<!--        android:id="@+id/join_2v2"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        tools:text="Join 2v2"-->
-<!--        android:text="Join 2v2"-->
-<!--        android:textColor="?attr/text_color"-->
-<!--        android:textStyle="normal"-->
-<!--        android:textAllCaps="false"-->
-<!--        android:paddingLeft="16dp"-->
-<!--        android:paddingRight="16dp"-->
-<!--        android:paddingBottom="16dp"-->
-<!--        android:paddingTop="16dp"/>-->
+    <Button
+        android:id="@+id/join_public"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Join Public"
+        android:text="Join Public"
+        android:textColor="@color/white"
+        android:textStyle="normal"
+        android:textAllCaps="false"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:background="@color/our_grey"/>
 
     <Button
         android:id="@+id/join_private"
@@ -48,14 +49,14 @@
         android:layout_height="wrap_content"
         tools:text="Join Private"
         android:text="Join Private"
-        android:textColor="?attr/text_color"
+        android:textColor="@color/white"
         android:textStyle="normal"
         android:textAllCaps="false"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
         android:paddingTop="16dp"
-        />
+        android:background="@color/our_grey"/>
 
     <Button
         android:id="@+id/main_menu_quit_btn"
@@ -63,12 +64,13 @@
         android:layout_height="wrap_content"
         tools:text="Quit"
         android:text="Quit"
-        android:textColor="?attr/text_color"
+        android:textColor="@color/white"
         android:textStyle="normal"
         android:textAllCaps="false"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:paddingTop="16dp"/>
+        android:paddingTop="16dp"
+        android:background="@color/our_grey"/>
 
 </LinearLayout>

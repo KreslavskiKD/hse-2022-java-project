@@ -2,6 +2,7 @@ package ru.hse.fmcs.tickgame.activities
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.Window
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -15,16 +16,18 @@ import ru.hse.fmcs.tickgame.viewmodels.StartActivityViewModel
 class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_FULLSCREEN
+                or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
+
         try {
             supportActionBar!!.hide()
         } catch (e : NullPointerException) {}
 
-        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-            setTheme(R.style.Theme_Dark)
-        } else {
-            setTheme(R.style.Theme_Light)
-        }
         setContentView(R.layout.activity_start)
         val viewModel : StartActivityViewModel by viewModels()
 
@@ -34,13 +37,6 @@ class StartActivity : AppCompatActivity() {
             viewModel.uiState.collect {
                 Log.d(TAG, "In collect")
                 when (it) {
-//                    is UIState.ChooseLobby -> {
-//                        Log.d(TAG, "ChooseLobby")
-//
-//                        supportFragmentManager.beginTransaction().replace(R.id.left_column_fl, EmptyFragment()).commit()
-//                        supportFragmentManager.beginTransaction().replace(R.id.center_column_fl, ChooseLobbyFragment()).commit()
-//                        supportFragmentManager.beginTransaction().replace(R.id.right_column_fl, EmptyFragment()).commit()
-//                    }
                     is UIState.Quit -> {
                         Log.d(TAG, "Quit")
                         onDestroy()
@@ -57,7 +53,7 @@ class StartActivity : AppCompatActivity() {
 
                         supportFragmentManager.beginTransaction().replace(R.id.left_column_fl, EmptyFragment()).commit()
                         supportFragmentManager.beginTransaction().replace(R.id.center_column_fl, StartMenuFragment()).commit()
-                        supportFragmentManager.beginTransaction().replace(R.id.right_column_fl, EmptyFragment()).commit()
+                        supportFragmentManager.beginTransaction().replace(R.id.right_column_fl, IPFragment()).commit()
                     }
                     is UIState.Register -> {
                         Log.d(TAG, "Register")

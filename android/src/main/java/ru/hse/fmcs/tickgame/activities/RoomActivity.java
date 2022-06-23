@@ -77,7 +77,7 @@ public class RoomActivity extends Activity {
 
             @Override
             public void onCompleted() {
-                onDestroy();
+                end();
             }
 
         };
@@ -96,16 +96,16 @@ public class RoomActivity extends Activity {
         Button leaveBtn = new Button(roomButtonsLayout.getContext());
         leaveBtn.setText("Leave");
         leaveBtn.setOnClickListener(view -> {
-                onBackPressed();
+            Log.d(TAG, "leaveBtn setOnClickListener");
+                end();
             }
         );
         roomButtonsLayout.addView(leaveBtn);
     }
 
-    @Override
-    public void onBackPressed() {
+    private void end() {
         channel.shutdown();
-        super.onBackPressed();
+        finish();
     }
 
     @Override

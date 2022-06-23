@@ -58,6 +58,7 @@ class StartMenuFragment : Fragment() {
                 address = edittext.text.toString()
                 if (isIpValid(address)) {
                     GameContext.setServerAddress(address)
+                    viewModel.currentIP.value = address
                 } else {
                     val toast = Toast.makeText(activity, "Not an IP", Toast.LENGTH_LONG)
                     toast.show()

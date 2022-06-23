@@ -12,7 +12,7 @@
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
     android:paddingTop="16dp"
-    android:background="?attr/background_color">
+    android:background="@color/our_black">
 
     <Button
         android:id="@+id/goto_login_btn"
@@ -20,7 +20,9 @@
         android:layout_height="wrap_content"
         tools:text="Login"
         android:text="Login"
-        android:textColor="?attr/text_color"
+        android:textColor="@color/white"
+        android:background="@color/our_grey"
+        android:fontFamily="@font/fa_light"
         android:textStyle="normal"
         android:textAllCaps="false"
         android:paddingLeft="16dp"
@@ -34,27 +36,31 @@
         android:layout_height="wrap_content"
         tools:text="Register"
         android:text="Register"
-        android:textColor="?attr/text_color"
+        android:textColor="@color/white"
         android:textStyle="normal"
+        android:fontFamily="@font/fa_light"
         android:textAllCaps="false"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:paddingTop="16dp"/>
+        android:paddingTop="16dp"
+        android:background="@color/our_grey"/>
 
     <Button
         android:id="@+id/connect_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Connect to a private server"
-        android:text="Connect to a private server"
-        android:textColor="?attr/text_color"
+        tools:text="@string/ctaps"
+        android:text="@string/ctaps"
+        android:textColor="@color/white"
+        android:fontFamily="@font/fa_light"
         android:textStyle="normal"
         android:textAllCaps="false"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:paddingTop="16dp"/>
+        android:paddingTop="16dp"
+        android:background="@color/our_grey"/>
 
     <Button
         android:id="@+id/quit_btn"
@@ -62,12 +68,14 @@
         android:layout_height="wrap_content"
         tools:text="Quit"
         android:text="Quit"
-        android:textColor="?attr/text_color"
+        android:textColor="@color/white"
+        android:fontFamily="@font/fa_light"
         android:textStyle="normal"
         android:textAllCaps="false"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:paddingTop="16dp"/>
+        android:paddingTop="16dp"
+        android:background="@color/our_grey"/>
 
 </LinearLayout>

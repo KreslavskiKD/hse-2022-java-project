@@ -10,7 +10,7 @@ import androidx.fragment.app.activityViewModels
 import ru.hse.fmcs.tickgame.R
 import ru.hse.fmcs.tickgame.viewmodels.StartActivityViewModel
 
-class UserStatsFragment : Fragment() {
+class IPFragment : Fragment() {
     private lateinit var userNameTextView: TextView
     private val viewModel : StartActivityViewModel by activityViewModels()
 
@@ -21,9 +21,9 @@ class UserStatsFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.frame_user_stats, container, false)
         userNameTextView = view.findViewById(R.id.nickname_field)
-        viewModel.currentUser.observe(viewLifecycleOwner) {
-            userNameTextView.text = it.login
-        }
+        userNameTextView.text = ""
+        val infotextview : TextView = view.findViewById(R.id.other)
+        infotextview.text = ""
 
         val iptextview : TextView = view.findViewById(R.id.ip_field)
         viewModel.currentIP.observe(viewLifecycleOwner) {
@@ -32,5 +32,4 @@ class UserStatsFragment : Fragment() {
 
         return view
     }
-
 }

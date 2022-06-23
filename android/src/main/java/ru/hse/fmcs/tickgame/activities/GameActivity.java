@@ -103,9 +103,7 @@ public class GameActivity extends Activity  {
             @Override
             public void onCompleted() {
                 // close game
-
-                onBackPressed();
-                onDestroy();
+                end();
             }
 
         };
@@ -120,10 +118,13 @@ public class GameActivity extends Activity  {
         moveControllerLayout.addView(moveController);
 
         // add buttons to menu
-        menuLayout.addView(new Button(menuLayout.getContext()));
-        menuLayout.addView(new Button(menuLayout.getContext()));
-        menuLayout.addView(new Button(menuLayout.getContext()));
-        menuLayout.addView(new Button(menuLayout.getContext()));
+        Button leaveBtn = new Button(menuLayout.getContext());
+        leaveBtn.setText("Surrender");
+        leaveBtn.setOnClickListener(view -> {
+                    end();
+                }
+        );
+        menuLayout.addView(leaveBtn);
 
         // add scoreboard
         scoreBoardLayout.addView(scoreBoardView);
@@ -190,11 +191,13 @@ public class GameActivity extends Activity  {
             advertTextView.setAlpha(0);
         });
 
-        //  switch to choose room
+        end();
     }
 
-
-
+    private void end() {
+        channel.shutdown();
+        finish();
+    }
 
     private void processGameStateUpdatedEvent(GameObject.GameStateResponse event) {
         runOnUiThread(()-> {

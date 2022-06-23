@@ -53,6 +53,13 @@ class MainMenuFragment : Fragment() {
 
         }
 
+        val joinPublic : Button = view.findViewById(R.id.join_public)
+        joinPublic.setOnClickListener {
+            val intent = Intent(activity, RoomActivity::class.java)
+            intent.putExtra("lobby_id", "")
+            startActivity(intent)
+        }
+
         return view
     }
 }

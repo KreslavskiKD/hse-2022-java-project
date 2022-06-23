@@ -1,4 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">TickGame</string>
     <string name="title_activity_lobby">Lobby Activity</string>
+    <string name="ctaps">Connect to a private server</string>
 </resources>

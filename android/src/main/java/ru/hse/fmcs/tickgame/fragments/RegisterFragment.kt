@@ -11,6 +11,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 import ru.hse.fmcs.tickgame.R
 import ru.hse.fmcs.tickgame.data.User
 import ru.hse.fmcs.tickgame.viewmodels.StartActivityViewModel
@@ -38,10 +40,12 @@ class RegisterFragment : Fragment() {
             val password = passwordTextField.text.toString()
             val repPassword = repeatPasswordTextField.text.toString()
             if (!(login == "" || password == "") && repPassword == password) {
-                val message = viewModel.register(User(login, password))
-                if (message != "ok") {
-                    val toast = Toast.makeText(activity, message, Toast.LENGTH_LONG)
-                    toast.show()
+                viewModel.viewModelScope.launch {
+                    val message = viewModel.register(User(login, password))
+                    if (message != "ok") {
+                        val toast = Toast.makeText(activity, message, Toast.LENGTH_LONG)
+                        toast.show()
+                    }
                 }
             } else if (repPassword != password) {
                 info.text = "Passwords don't match"
