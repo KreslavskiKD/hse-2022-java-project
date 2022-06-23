@@ -116,8 +116,9 @@ class StartActivityViewModel(application: Application) : AndroidViewModel(applic
 
     private suspend fun getCached(): String = withContext(Dispatchers.IO) {
         Log.d(TAG, "getCached")
-        if (!hasCached()) return@withContext GameContext.getServerAddress()
+        if (!hasCached()) return@withContext Constants.DEFAULT_IP
         val ip = shp.getString(IP, "")
+        GameContext.setServerAddress(ip);
         return@withContext ip!!
     }
 
