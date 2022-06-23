@@ -52,6 +52,12 @@ class LoginFragment : Fragment() {
             viewModel.setUiState(UIState.Register())
         }
 
+        val quitBtn : Button = view.findViewById(R.id.quit_login_btn)
+        quitBtn.setOnClickListener {
+            viewModel.setUiState(UIState.Start())
+        }
+
+
         return view
     }
 

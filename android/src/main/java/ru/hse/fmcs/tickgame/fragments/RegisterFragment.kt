@@ -15,6 +15,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import ru.hse.fmcs.tickgame.R
 import ru.hse.fmcs.tickgame.data.User
+import ru.hse.fmcs.tickgame.models.UIState
 import ru.hse.fmcs.tickgame.viewmodels.StartActivityViewModel
 
 class RegisterFragment : Fragment() {
@@ -50,6 +51,11 @@ class RegisterFragment : Fragment() {
             } else if (repPassword != password) {
                 info.text = "Passwords don't match"
             }
+        }
+
+        val quitBtn : Button = view.findViewById(R.id.quit_reg_btn)
+        quitBtn.setOnClickListener {
+            viewModel.setUiState(UIState.Start())
         }
 
         return view
