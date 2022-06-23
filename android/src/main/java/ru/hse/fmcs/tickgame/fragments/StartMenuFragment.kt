@@ -49,6 +49,7 @@ class StartMenuFragment : Fragment() {
             val alert: AlertDialog.Builder = AlertDialog.Builder(context)
             var address : String
             val edittext = EditText(context)
+            edittext.setText(GameContext.getServerAddress())
             alert.setMessage("")
             alert.setTitle("Enter server address")
 

@@ -18,43 +18,46 @@
         android:id="@+id/reg_login_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:lines="1"
-        android:inputType="textVisiblePassword"
+        android:layout_marginTop="20dp"
         android:hint="Login"
-        android:textColorHint="@color/white"
+        android:inputType="textVisiblePassword"
+        android:lines="1"
         android:paddingLeft="16dp"
+        android:paddingTop="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:paddingTop="16dp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/reg_password_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:lines="1"
+        android:layout_marginTop="10dp"
         android:hint="Password"
-        android:textColorHint="@color/white"
         android:inputType="textPassword"
+        android:lines="1"
         android:paddingLeft="16dp"
+        android:paddingTop="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:paddingTop="16dp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/reg_password_edit_text_repeat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:lines="1"
+        android:layout_marginTop="10dp"
         android:hint="Repeat password"
-        android:textColorHint="@color/white"
         android:inputType="textPassword"
+        android:lines="1"
         android:paddingLeft="16dp"
+        android:paddingTop="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:paddingTop="16dp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <TextView
         android:id="@+id/txtInfo"
@@ -76,34 +79,38 @@
             android:id="@+id/register_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            tools:text="Register"
-            android:text="Register"
-            android:textStyle="normal"
-            android:textAllCaps="false"
-            android:fontFamily="@font/fa_light"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="2dp"
             android:background="#D21979"
-            android:textColor="@color/white"
+            android:fontFamily="@font/fa_light"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:layout_alignParentStart="true"/>
+            android:text="Register"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="normal"
+            tools:text="Register" />
 
         <Button
             android:id="@+id/quit_reg_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            tools:text="Quit"
-            android:text="Quit"
-            android:textStyle="normal"
-            android:textAllCaps="false"
-            android:fontFamily="@font/fa_light"
+            android:layout_alignParentBottom="false"
+            android:layout_marginTop="2dp"
             android:background="#F44336"
-            android:textColor="@color/white"
+            android:fontFamily="@font/fa_light"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"/>
+            android:text="Quit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="normal"
+            tools:text="Quit" />
     </RelativeLayout>
 
 </LinearLayout>

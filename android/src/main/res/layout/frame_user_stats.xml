@@ -19,15 +19,16 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/other"
-            tools:text="You are currently logged in as:"
-            android:text="You are currently logged in as:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:gravity="center_horizontal"
-            android:textColor="@color/white"/>
+            android:text="You are  logged in as:"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            tools:text="You are  logged in as:" />
 
         <TextView
             android:id="@+id/nickname_field"
@@ -44,15 +45,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_alignParentBottom="true">
+
         <TextView
             android:id="@+id/ip_other"
-            tools:text="You are currently connected to:"
-            android:text="You are currently connected to:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:gravity="center_horizontal"
-            android:textColor="@color/white"/>
+            android:text="You are connected to:"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            tools:text="You are connected to:" />
 
         <TextView
             android:id="@+id/ip_field"
