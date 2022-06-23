@@ -17,7 +17,6 @@ import androidx.annotation.RequiresApi;
 import androidx.core.content.res.ResourcesCompat;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -25,7 +24,7 @@ import io.grpc.stub.StreamObserver;
 import ru.hse.fmcs.GameObject;
 import ru.hse.fmcs.Room;
 import ru.hse.fmcs.RoomServiceGrpc;
-import ru.hse.fmcs.tickgame.Context;
+import ru.hse.fmcs.tickgame.GameContext;
 import ru.hse.fmcs.tickgame.R;
 
 
@@ -55,17 +54,13 @@ public class RoomActivity extends Activity {
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-
         this.setContentView(R.layout.room);
 
-        Context.setLogin(UUID.randomUUID().toString().substring(0, 6));
+        String roomName = getIntent().getStringExtra("lobby_id");
 
-        String roomName = "";
+        channel = ManagedChannelBuilder.forAddress(GameContext.getServerAddress(), GameContext.getRoomPort()).usePlaintext().build();
 
-        channel = ManagedChannelBuilder.forAddress(Context.getServerAddress(), Context.getRoomPort()).usePlaintext().build();
-
-        Room.JoinToRoomRequest req = Room.JoinToRoomRequest.newBuilder().setLogin(Context.getLogin()).setRoomName(roomName).build();
+        Room.JoinToRoomRequest req = Room.JoinToRoomRequest.newBuilder().setLogin(GameContext.getLogin()).setRoomName(roomName).build();
 
         StreamObserver<Room.RoomEvent> clientObserver = new StreamObserver<Room.RoomEvent>() {
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -76,12 +71,13 @@ public class RoomActivity extends Activity {
 
             @Override
             public void onError(Throwable t) {
-                System.out.println("ERROR\nERROR\n");
+                if (t != null) Log.d(TAG, "clientObserver error: \n" + t.getMessage());
+                else Log.d(TAG, "clientObserver error");
             }
 
             @Override
             public void onCompleted() {
-                // close game
+                onDestroy();
             }
 
         };
@@ -97,8 +93,25 @@ public class RoomActivity extends Activity {
         playersLayout = findViewById(R.id.roomPlayersLayout);
         numberPlayersToStartView = findViewById(R.id.numberPlayersToStartTextView);
 
-        roomButtonsLayout.addView(new LeaveButton(roomButtonsLayout.getContext()));
-        roomButtonsLayout.addView(new Button(roomButtonsLayout.getContext()));
+        Button leaveBtn = new Button(roomButtonsLayout.getContext());
+        leaveBtn.setText("Leave");
+        leaveBtn.setOnClickListener(view -> {
+                onBackPressed();
+            }
+        );
+        roomButtonsLayout.addView(leaveBtn);
+    }
+
+    @Override
+    public void onBackPressed() {
+        channel.shutdown();
+        super.onBackPressed();
+    }
+
+    @Override
+    public void onDestroy() {
+        channel.shutdown();
+        super.onDestroy();
     }
 
     private void processRoomEvent(Room.RoomEvent value) {
@@ -229,21 +242,6 @@ public class RoomActivity extends Activity {
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-    }
-
-
-    private class LeaveButton extends androidx.appcompat.widget.AppCompatButton implements View.OnClickListener {
-        public LeaveButton(android.content.Context context) {
-            super(context);
-            setOnClickListener(this);
-            setText("Leave");
-        }
-
-
-        @Override
-        public void onClick(View v) {
-
-        }
     }
 
 }

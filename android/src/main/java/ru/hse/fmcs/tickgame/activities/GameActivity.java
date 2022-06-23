@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.lifecycle.ViewModelProvider;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -22,7 +23,7 @@ import io.grpc.stub.StreamObserver;
 import ru.hse.fmcs.Game;
 import ru.hse.fmcs.GameObject;
 import ru.hse.fmcs.GameServiceGrpc;
-import ru.hse.fmcs.tickgame.Context;
+import ru.hse.fmcs.tickgame.GameContext;
 import ru.hse.fmcs.tickgame.R;
 import ru.hse.fmcs.tickgame.controllers.GameController;
 import ru.hse.fmcs.tickgame.views.GameMapView;
@@ -64,8 +65,7 @@ public class GameActivity extends Activity  {
 
         this.setContentView(R.layout.game_map);
 
-
-        String login = Context.getLogin();
+        String login = GameContext.getLogin();
         Log.d(TAG, "Login:" + login);
         String gameID = getIntent().getExtras().getString("game_id");
         Log.d(TAG,"GAME:" + gameID);
@@ -75,7 +75,7 @@ public class GameActivity extends Activity  {
         moveControllerLayout = findViewById(R.id.moveControllerLayout);
         scoreBoardLayout = findViewById(R.id.scoreBoardLayout);
 
-        channel = ManagedChannelBuilder.forAddress(Context.getServerAddress(), Integer.parseInt(gameID)).usePlaintext().build();
+        channel = ManagedChannelBuilder.forAddress(GameContext.getServerAddress(), Integer.parseInt(gameID)).usePlaintext().build();
 
         gameController = new GameController(channel);
         gameMapView = new GameMapView(gameMapLayout.getContext(), gameController);
@@ -93,12 +93,16 @@ public class GameActivity extends Activity  {
 
             @Override
             public void onError(Throwable t) {
-                System.out.println("ERROR\nERROR\n");
+                if (t != null) Log.d(TAG, "clientObserver error: " + t.getMessage());
+                else Log.d(TAG, "clientObserver error");
             }
 
             @Override
             public void onCompleted() {
                 // close game
+
+                onBackPressed();
+                onDestroy();
             }
 
         };
@@ -122,6 +126,12 @@ public class GameActivity extends Activity  {
         scoreBoardLayout.addView(scoreBoardView);
 
         // this.setContentView(new GameSurface(this));
+    }
+
+    @Override
+    public void onDestroy() {
+        channel.shutdown();
+        super.onDestroy();
     }
 
     @Override

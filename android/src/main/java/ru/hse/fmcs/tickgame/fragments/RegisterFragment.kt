@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ru.hse.fmcs.tickgame.R
@@ -32,17 +33,25 @@ class RegisterFragment : Fragment() {
 
         registerBtn.setOnClickListener {
             info.text = ""
-            Log.d(LoginFragment.TAG, "In setOnClickListener")
+            Log.d(TAG, "In setOnClickListener")
             val login = loginTextField.text.toString()
             val password = passwordTextField.text.toString()
             val repPassword = repeatPasswordTextField.text.toString()
             if (!(login == "" || password == "") && repPassword == password) {
-                viewModel.register(User(login, password))
+                val message = viewModel.register(User(login, password))
+                if (message != "ok") {
+                    val toast = Toast.makeText(activity, message, Toast.LENGTH_LONG)
+                    toast.show()
+                }
             } else if (repPassword != password) {
                 info.text = "Passwords don't match"
             }
         }
 
         return view
+    }
+
+    companion object {
+        const val TAG = "RegisterFragment"
     }
 }

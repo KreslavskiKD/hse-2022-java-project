@@ -43,6 +43,20 @@
         android:paddingTop="16dp"/>
 
     <Button
+        android:id="@+id/connect_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Connect to a private server"
+        android:text="Connect to a private server"
+        android:textColor="?attr/text_color"
+        android:textStyle="normal"
+        android:textAllCaps="false"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"/>
+
+    <Button
         android:id="@+id/quit_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

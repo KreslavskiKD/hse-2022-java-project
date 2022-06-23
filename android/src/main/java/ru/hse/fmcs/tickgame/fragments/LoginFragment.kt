@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import kotlinx.coroutines.Dispatchers
 import ru.hse.fmcs.tickgame.R
 import ru.hse.fmcs.tickgame.data.User
 import ru.hse.fmcs.tickgame.models.UIState
@@ -35,7 +35,11 @@ class LoginFragment : Fragment() {
             val login = loginTextField.text.toString()
             val password = passwordTextField.text.toString()
             if (!(login == "" || password == "")) {
-                viewModel.login(User(login, password))
+                val message = viewModel.login(User(login, password))
+                if (message != "ok") {
+                    val toast = Toast.makeText(activity, message, Toast.LENGTH_LONG)
+                    toast.show()
+                }
             }
         }
 

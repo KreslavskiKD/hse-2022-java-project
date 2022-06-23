@@ -4,13 +4,20 @@ import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.util.Log
+import io.grpc.ManagedChannelBuilder
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import ru.hse.fmcs.Account
+import ru.hse.fmcs.AccountServiceGrpc
+import ru.hse.fmcs.tickgame.GameContext
 import ru.hse.fmcs.tickgame.data.User
 import ru.hse.fmcs.tickgame.data.noUser
 import ru.hse.fmcs.tickgame.models.AuthState
+
 
 class UserAuthStateFlow(var context: Context)  {
 
@@ -19,29 +26,69 @@ class UserAuthStateFlow(var context: Context)  {
     private val _stateFlow: MutableStateFlow<AuthState> = MutableStateFlow(AuthState.Unauthenticated())
     val stateFlow: StateFlow<AuthState> get() = _stateFlow
 
+    private val channel = ManagedChannelBuilder
+        .forAddress(GameContext.getServerAddress(), GameContext.getLoginPort())
+        .usePlaintext()
+        .build()
+
+    private val stub = AccountServiceGrpc.newBlockingStub(channel)
+
+    private var message : String = ""
     suspend fun tryLogin() {
         if (hasCached()) {
             val currentUser = getCached()
             _stateFlow.value = AuthState.InProcess(currentUser)
-            // actual login with account
-            _stateFlow.value = AuthState.Authenticated(currentUser)
+            if (login(currentUser)) {
+                _stateFlow.value = AuthState.Authenticated(currentUser)
+                Log.d(TAG, "tryLogin stateFlow value set")
+                // if it was successful we have to cache it
+                GlobalScope.launch(Dispatchers.IO) {
+                    setCache(currentUser)
+                }
+            }
         }
     }
 
-    fun login(user: User) {
+    suspend fun login(user: User) : Boolean {
         Log.d(TAG, "login")
-        // TODO("here will be some logging in later")
-        _stateFlow.value = AuthState.Authenticated(user)
-        Log.d(TAG, "login stateFlow value set")
-        // if it was successful we have to cache it
-//        setCache(fakeUser)
+
+        val lres: Account.LoginResponse = stub.login(
+            Account.LoginRequest.newBuilder().setLogin(user.login).setPassword(user.password).build()
+        )
+        message = lres.comment
+        if (lres.success) {
+            _stateFlow.value = AuthState.Authenticated(user)
+            Log.d(TAG, "login stateFlow value set")
+            // if it was successful we have to cache it
+            GlobalScope.launch(Dispatchers.IO) {
+                setCache(user)
+            }
+            return true
+        }
+
+        return false
     }
 
-    fun register(user: User) {
-        Log.d(TAG, "login")
-        // TODO("here will be some registering in later")
-        _stateFlow.value = AuthState.Authenticated(user)
-        Log.d(TAG, "register stateFlow value set")
+    fun getMessage() : String {
+        return message
+    }
+
+    suspend fun register(user: User) : Boolean {
+        Log.d(TAG, "register")
+        val regRes = stub.registerAccount(
+            Account.RegisterAccountRequest.newBuilder().setLogin(user.login).setPassword(user.password).build()
+        )
+        message = regRes.comment
+        if (regRes.success) {
+            _stateFlow.value = AuthState.Authenticated(user)
+            Log.d(TAG, "register stateFlow value set")
+            // if it was successful we have to cache it
+            GlobalScope.launch(Dispatchers.IO) {
+                setCache(user)
+            }
+            return true
+        }
+        return false
     }
 
     private suspend fun hasCached(): Boolean = withContext(Dispatchers.IO) {

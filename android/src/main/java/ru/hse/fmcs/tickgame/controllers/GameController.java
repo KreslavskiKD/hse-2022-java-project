@@ -2,10 +2,6 @@ package ru.hse.fmcs.tickgame.controllers;
 
 
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.text.BoringLayout;
-import android.view.View;
 
 import java.util.List;
 
@@ -13,8 +9,7 @@ import io.grpc.ManagedChannel;
 import ru.hse.fmcs.Game;
 import ru.hse.fmcs.GameObject;
 import ru.hse.fmcs.GameServiceGrpc;
-import ru.hse.fmcs.tickgame.Context;
-import ru.hse.fmcs.tickgame.Player;
+import ru.hse.fmcs.tickgame.GameContext;
 import ru.hse.fmcs.tickgame.UIConfig;
 import ru.hse.fmcs.tickgame.Icons;
 import ru.hse.fmcs.tickgame.objects.Direction;
@@ -80,7 +75,7 @@ public class GameController implements OnSelectBlockListener, OnMoveListener {
             GameObject.BlockCoordinate start = GameObject.BlockCoordinate.newBuilder().setX(selectedBlock.x).setY(selectedBlock.y).build();
             GameObject.BlockCoordinate end = GameObject.BlockCoordinate.newBuilder().setX(tox).setY(toy).build();
             Game.AttackRequest.Builder req = Game.AttackRequest.newBuilder().setStart(start).setEnd(end);
-            GameObject.Player player = GameObject.Player.newBuilder().setLogin(Context.getLogin()).setColor("").build();
+            GameObject.Player player = GameObject.Player.newBuilder().setLogin(GameContext.getLogin()).setColor("").build();
 
             req.setPlayer(player);
             req.setIs50(selectedBlock.getClickNumber() != 1);
@@ -235,6 +230,7 @@ public class GameController implements OnSelectBlockListener, OnMoveListener {
         BlockView blockView = gameMapView.getBlock(selectedBlock.x, selectedBlock.y);
         switch (selectedBlock.getClickNumber()) {
             case 1:
+                blockView.setBorderColor(Color.YELLOW);
                 break;
             case 2:
                 blockView.setBlockColor(Color.YELLOW);
@@ -265,6 +261,7 @@ public class GameController implements OnSelectBlockListener, OnMoveListener {
         blockView.setVisableDownArrow(false);
         blockView.setVisableUpArrow(false);
         blockView.setBlockColor(UIConfig.HIDDEN_BLOCK_COLOR);
+        blockView.setBorderColor(Color.TRANSPARENT);
     }
 
 

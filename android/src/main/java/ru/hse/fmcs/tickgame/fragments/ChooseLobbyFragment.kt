@@ -11,11 +11,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import ru.hse.fmcs.tickgame.R
 import ru.hse.fmcs.tickgame.activities.RoomActivity
-import ru.hse.fmcs.tickgame.viewmodels.LobbyActivityViewModel
+import ru.hse.fmcs.tickgame.models.UIState
+import ru.hse.fmcs.tickgame.viewmodels.StartActivityViewModel
 
 class ChooseLobbyFragment : Fragment() {
 
-    val viewModel : LobbyActivityViewModel by viewModels()
+    private val viewModel : StartActivityViewModel by viewModels();
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,11 +30,9 @@ class ChooseLobbyFragment : Fragment() {
 
         getInBtn.setOnClickListener {
             val lobbyId = lobbyIdTextView.text.toString()
-            // connect to lobby somehow
-            // or maybe lobbyId should be transfered to LobbyActivity and used there to connect
-            // if successful go to Lobby activity
             val intent = Intent(activity, RoomActivity::class.java)
-            // TODO some additional information should be added to intent later
+            intent.putExtra("lobby_id", lobbyId)
+            viewModel.setUiState(UIState.Menu())
             startActivity(intent)
 
         }

@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import ru.hse.fmcs.tickgame.GameContext
 import ru.hse.fmcs.tickgame.data.User
 import ru.hse.fmcs.tickgame.data.noUser
 import ru.hse.fmcs.tickgame.models.AuthState
@@ -26,12 +27,13 @@ class StartActivityViewModel(application: Application) : AndroidViewModel(applic
 
     init {
         viewModelScope.launch {
-            uasf.tryLogin()
+            // uasf.tryLogin()
             authStateFlow.collect { authState ->
                 when (authState) {
                     is AuthState.Authenticated -> {
                         Log.d(TAG, "Authenticated")
                         _uiState.emit(UIState.Menu())
+                        GameContext.setLogin(authState.authenticatedUser.login)
                         setUserData(authState.authenticatedUser)
                     }
                     is AuthState.InProcess -> {
@@ -50,18 +52,34 @@ class StartActivityViewModel(application: Application) : AndroidViewModel(applic
 
     }
 
-    fun login(user: User) {
-        Log.d(TAG, "login")
+    fun login(user: User) : String {
+        var message = "ok"
         viewModelScope.launch {
-            uasf.login(user)
+            val job = viewModelScope.launch {
+                Log.d(TAG, "login")
+                val res = uasf.login(user)
+                if (!res) {
+                    message = uasf.getMessage()
+                }
+            }
+            job.join()
         }
+        return message
     }
 
-    fun register(user: User) {
-        Log.d(TAG, "register")
+    fun register(user: User) : String {
+        var message = "ok"
         viewModelScope.launch {
-            uasf.register(user)
+            val job = viewModelScope.launch {
+                Log.d(TAG, "register")
+                val res = uasf.register(user)
+                if (!res) {
+                    message = uasf.getMessage()
+                }
+            }
+            job.join()
         }
+        return message
     }
 
     fun setUserData(user: User) {
