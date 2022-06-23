@@ -1,18 +1,20 @@
 package ru.hse.fmcs.tickgame.fragments
 
+import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import ru.hse.fmcs.tickgame.R
-import ru.hse.fmcs.tickgame.models.UIState
+import ru.hse.fmcs.tickgame.activities.RoomActivity
 import ru.hse.fmcs.tickgame.viewmodels.StartActivityViewModel
 
 class MainMenuFragment : Fragment() {
-    private val viewModel : StartActivityViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,7 +29,28 @@ class MainMenuFragment : Fragment() {
 
         val joinPrivate : Button = view.findViewById(R.id.join_private)
         joinPrivate.setOnClickListener {
-            viewModel.setUiState(UIState.ChooseLobby())
+
+            val alert: AlertDialog.Builder = AlertDialog.Builder(context)
+            var lobbyId : String
+            val edittext = EditText(context)
+            alert.setMessage("")
+            alert.setTitle("Enter room id")
+
+            alert.setView(edittext)
+
+            alert.setPositiveButton("Ok") { dialog, whichButton ->
+                lobbyId = edittext.text.toString()
+                val intent = Intent(activity, RoomActivity::class.java)
+                intent.putExtra("lobby_id", lobbyId)
+                startActivity(intent)
+            }
+
+            alert.setNegativeButton("Cancel") { dialog, whichButton ->
+                // what ever you want to do with No option.
+            }
+
+            alert.show()
+
         }
 
         return view

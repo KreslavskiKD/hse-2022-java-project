@@ -15,6 +15,16 @@
     android:background="?attr/background_color">
 
     <TextView
+        android:id="@+id/other"
+        tools:text="here will be some other stats"
+        android:text="You are currently logged in as:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:textColor="?attr/text_color"/>
+
+    <TextView
         android:id="@+id/nickname_field"
         tools:text="Nickname"
         android:layout_width="match_parent"
@@ -23,14 +33,6 @@
         android:gravity="center_horizontal"
         android:textColor="?attr/text_color"/>
 
-    <TextView
-        android:id="@+id/other"
-        tools:text="here will be some other stats"
-        android:text="here will be some other stats"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:gravity="center_horizontal"
-        android:textColor="?attr/text_color"/>
+
 
 </LinearLayout>

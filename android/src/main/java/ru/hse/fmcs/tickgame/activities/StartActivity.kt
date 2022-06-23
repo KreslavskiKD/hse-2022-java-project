@@ -34,13 +34,13 @@ class StartActivity : AppCompatActivity() {
             viewModel.uiState.collect {
                 Log.d(TAG, "In collect")
                 when (it) {
-                    is UIState.ChooseLobby -> {
-                        Log.d(TAG, "ChooseLobby")
-
-                        supportFragmentManager.beginTransaction().replace(R.id.left_column_fl, EmptyFragment()).commit()
-                        supportFragmentManager.beginTransaction().replace(R.id.center_column_fl, ChooseLobbyFragment()).commit()
-                        supportFragmentManager.beginTransaction().replace(R.id.right_column_fl, EmptyFragment()).commit()
-                    }
+//                    is UIState.ChooseLobby -> {
+//                        Log.d(TAG, "ChooseLobby")
+//
+//                        supportFragmentManager.beginTransaction().replace(R.id.left_column_fl, EmptyFragment()).commit()
+//                        supportFragmentManager.beginTransaction().replace(R.id.center_column_fl, ChooseLobbyFragment()).commit()
+//                        supportFragmentManager.beginTransaction().replace(R.id.right_column_fl, EmptyFragment()).commit()
+//                    }
                     is UIState.Quit -> {
                         Log.d(TAG, "Quit")
                         onDestroy()
@@ -68,7 +68,7 @@ class StartActivity : AppCompatActivity() {
                     is UIState.Menu -> {
                         Log.d(TAG, "Menu")
 
-                        supportFragmentManager.beginTransaction().replace(R.id.left_column_fl, SettingsFragment()).commit()
+  //                      supportFragmentManager.beginTransaction().replace(R.id.left_column_fl, SettingsFragment()).commit()
                         supportFragmentManager.beginTransaction().replace(R.id.center_column_fl, MainMenuFragment()).commit()
                         supportFragmentManager.beginTransaction().replace(R.id.right_column_fl, UserStatsFragment()).commit()
                     }

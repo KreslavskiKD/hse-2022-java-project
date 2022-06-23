@@ -5,11 +5,5 @@ abstract class UIState {
     class Login : UIState() {}
     class Register : UIState() {}
     class Menu : UIState() {}
-    class ChooseLobby : UIState() {}
     class Quit : UIState() {}
-
-    open class Lobby : UIState() {
-        class MainLobby : Lobby() {}
-        class GameField : Lobby() {}
-    }
 }

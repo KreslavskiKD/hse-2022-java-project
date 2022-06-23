@@ -32,7 +32,7 @@ class ChooseLobbyFragment : Fragment() {
             val lobbyId = lobbyIdTextView.text.toString()
             val intent = Intent(activity, RoomActivity::class.java)
             intent.putExtra("lobby_id", lobbyId)
-            viewModel.setUiState(UIState.Menu())
+//            viewModel.setUiState(UIState.Menu())
             startActivity(intent)
 
         }

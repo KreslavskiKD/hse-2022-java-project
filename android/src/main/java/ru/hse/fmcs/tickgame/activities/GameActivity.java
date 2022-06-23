@@ -11,6 +11,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -45,7 +46,7 @@ public class GameActivity extends Activity  {
     private GameMapView gameMapView;
     private MoveController moveController;
     private ScoreBoardView scoreBoardView;
-
+    private TextView advertTextView;
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -74,6 +75,8 @@ public class GameActivity extends Activity  {
         menuLayout = findViewById(R.id.menuLayout);
         moveControllerLayout = findViewById(R.id.moveControllerLayout);
         scoreBoardLayout = findViewById(R.id.scoreBoardLayout);
+        advertTextView = findViewById(R.id.advertTextView);
+        advertTextView.setAlpha(0);
 
         channel = ManagedChannelBuilder.forAddress(GameContext.getServerAddress(), Integer.parseInt(gameID)).usePlaintext().build();
 
@@ -155,12 +158,42 @@ public class GameActivity extends Activity  {
             case PLAYERLOSTEVENT:
                 break;
             case GAMEFINISHEDEVENT:
+                processGameFinishedEvent(event.getGameFinishedEvent());
                 break;
             case GAMESTATERESPONSE:
                 processGameStateUpdatedEvent(event.getGameStateResponse());
                 break;
         }
     }
+
+    private void processGameFinishedEvent(Game.GameFinishedEvent event) {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        runOnUiThread(() -> {
+            advertTextView.setText(event.getReason());
+            gameMapLayout.setAlpha(0);
+            advertTextView.setAlpha(1);
+            moveControllerLayout.setAlpha(0);
+        });
+
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        runOnUiThread(() -> {
+            advertTextView.setAlpha(0);
+        });
+
+        //  switch to choose room
+    }
+
+
 
 
     private void processGameStateUpdatedEvent(GameObject.GameStateResponse event) {
