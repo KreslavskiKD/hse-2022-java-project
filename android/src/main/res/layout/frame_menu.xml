@@ -32,45 +32,47 @@
         android:id="@+id/join_public"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Join Public"
-        android:text="Join Public"
-        android:textColor="@color/white"
-        android:textStyle="normal"
-        android:textAllCaps="false"
+        android:background="@color/our_grey"
         android:paddingLeft="16dp"
+        android:paddingTop="20dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:paddingTop="16dp"
-        android:background="@color/our_grey"/>
+        android:text="Join Public"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="normal"
+        tools:text="Join Public" />
 
     <Button
         android:id="@+id/join_private"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Join Private"
-        android:text="Join Private"
-        android:textColor="@color/white"
-        android:textStyle="normal"
-        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        android:background="@color/our_grey"
         android:paddingLeft="16dp"
+        android:paddingTop="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:paddingTop="16dp"
-        android:background="@color/our_grey"/>
+        android:text="Join Private"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="normal"
+        tools:text="Join Private" />
 
     <Button
         android:id="@+id/main_menu_quit_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Quit"
-        android:text="Quit"
-        android:textColor="@color/white"
-        android:textStyle="normal"
-        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        android:background="@color/our_grey"
         android:paddingLeft="16dp"
+        android:paddingTop="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:paddingTop="16dp"
-        android:background="@color/our_grey"/>
+        android:text="Quit"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="normal"
+        tools:text="Quit" />
 
 </LinearLayout>

@@ -59,7 +59,7 @@
                 android:id="@+id/right_column_fl"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/our_black"/>
+                android:background="@color/our_black" />
 
         </RelativeLayout>
 
