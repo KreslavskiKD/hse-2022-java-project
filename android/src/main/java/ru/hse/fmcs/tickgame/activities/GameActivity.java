@@ -134,7 +134,7 @@ public class GameActivity extends Activity  {
 
     @Override
     public void onDestroy() {
-        channel.shutdown();
+        channel.shutdownNow();
         super.onDestroy();
     }
 
@@ -195,7 +195,7 @@ public class GameActivity extends Activity  {
     }
 
     private void end() {
-        channel.shutdown();
+        channel.shutdownNow();
         finish();
     }
 
