@@ -21,12 +21,6 @@
         android:roundIcon="@android:drawable/sym_def_app_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
-<!--        <activity-->
-<!--            android:name=".activities.LobbyActivity"-->
-<!--            android:exported="false"-->
-<!--            android:label="@string/title_activity_lobby"-->
-<!--            android:screenOrientation="landscape"-->
-<!--            android:theme="@style/Theme.Light" />-->
 
         <activity
             android:name=".activities.RoomActivity"
