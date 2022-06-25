@@ -26,14 +26,16 @@ class UserAuthStateFlow(var context: Context)  {
     private val _stateFlow: MutableStateFlow<AuthState> = MutableStateFlow(AuthState.Unauthenticated())
     val stateFlow: StateFlow<AuthState> get() = _stateFlow
 
-    private val channel = ManagedChannelBuilder
+    private var channel = ManagedChannelBuilder
         .forAddress(GameContext.getServerAddress(), GameContext.getLoginPort())
         .usePlaintext()
         .build()
 
-    private val stub = AccountServiceGrpc.newBlockingStub(channel)
+    private var stub = AccountServiceGrpc.newBlockingStub(channel)
 
     private var message : String = ""
+
+    // not used now due to concept changes
     suspend fun tryLogin() {
         if (hasCached()) {
             val currentUser = getCached()
@@ -51,6 +53,13 @@ class UserAuthStateFlow(var context: Context)  {
 
     suspend fun login(user: User) : Boolean {
         Log.d(TAG, "login")
+
+        channel = ManagedChannelBuilder
+            .forAddress(GameContext.getServerAddress(), GameContext.getLoginPort())
+            .usePlaintext()
+            .build()
+
+        stub = AccountServiceGrpc.newBlockingStub(channel)
 
         val lres: Account.LoginResponse = stub.login(
             Account.LoginRequest.newBuilder().setLogin(user.login).setPassword(user.password).build()
@@ -75,6 +84,14 @@ class UserAuthStateFlow(var context: Context)  {
 
     suspend fun register(user: User) : Boolean {
         Log.d(TAG, "register")
+
+        channel = ManagedChannelBuilder
+            .forAddress(GameContext.getServerAddress(), GameContext.getLoginPort())
+            .usePlaintext()
+            .build()
+
+        stub = AccountServiceGrpc.newBlockingStub(channel)
+
         val regRes = stub.registerAccount(
             Account.RegisterAccountRequest.newBuilder().setLogin(user.login).setPassword(user.password).build()
         )
