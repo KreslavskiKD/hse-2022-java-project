@@ -96,7 +96,7 @@ class StartActivityViewModel(application: Application) : AndroidViewModel(applic
         return message
     }
 
-    fun setUserData(user: User) {
+    private fun setUserData(user: User) {
         //// TODO CRITICAL remove this log after release
         //// Log.d(TAG, "setUserData: login - ${user.login}, password - ${user.password}")
         //// TODO ---------------------------------------

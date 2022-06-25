@@ -67,7 +67,7 @@ class StartMenuFragment : Fragment() {
             }
 
             alert.setNegativeButton("Cancel") { dialog, whichButton ->
-                // what ever you want to do with No option.
+                // whatever you want to do with No option.
             }
 
             alert.show()
@@ -77,7 +77,7 @@ class StartMenuFragment : Fragment() {
         return view
     }
 
-    fun isIpValid(ip: String): Boolean {
+    private fun isIpValid(ip: String): Boolean {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             InetAddresses.isNumericAddress(ip)
         } else {

@@ -42,14 +42,12 @@ class StartActivity : AppCompatActivity() {
                     }
                     is UIState.Login -> {
                         Log.d(TAG, "Login")
-
                         supportFragmentManager.beginTransaction().replace(R.id.left_column_fl, EmptyFragment()).commit()
                         supportFragmentManager.beginTransaction().replace(R.id.center_column_fl, LoginFragment()).commit()
                         supportFragmentManager.beginTransaction().replace(R.id.right_column_fl, EmptyFragment()).commit()
                     }
                     is UIState.Start -> {
                         Log.d(TAG, "Start")
-
                         supportFragmentManager.beginTransaction().replace(R.id.left_column_fl, EmptyFragment()).commit()
                         supportFragmentManager.beginTransaction().replace(R.id.center_column_fl, StartMenuFragment()).commit()
                         supportFragmentManager.beginTransaction().replace(R.id.right_column_fl, IPFragment()).commit()
@@ -62,8 +60,7 @@ class StartActivity : AppCompatActivity() {
                     }
                     is UIState.Menu -> {
                         Log.d(TAG, "Menu")
-
-  //                      supportFragmentManager.beginTransaction().replace(R.id.left_column_fl, SettingsFragment()).commit()
+                        supportFragmentManager.beginTransaction().replace(R.id.left_column_fl, EmptyFragment()).commit()
                         supportFragmentManager.beginTransaction().replace(R.id.center_column_fl, MainMenuFragment()).commit()
                         supportFragmentManager.beginTransaction().replace(R.id.right_column_fl, UserStatsFragment()).commit()
                     }
@@ -75,10 +72,6 @@ class StartActivity : AppCompatActivity() {
 
     }
 
-    companion object {
-        const val TAG = "StartActivity:"
-    }
-
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -87,6 +80,10 @@ class StartActivity : AppCompatActivity() {
                 or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 or View.SYSTEM_UI_FLAG_FULLSCREEN
                 or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
+    }
+
+    companion object {
+        const val TAG = "StartActivitY"
     }
 
 }
