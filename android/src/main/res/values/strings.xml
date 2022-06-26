@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TickGame</string>
+    <string name="app_name">TickBattle</string>
     <string name="title_activity_lobby">Lobby Activity</string>
     <string name="ctaps">Change server</string>
 </resources>
