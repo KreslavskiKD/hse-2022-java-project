@@ -48,8 +48,9 @@
         android:id="@+id/join_private"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:backgroundTint="@color/lime_700"
+        android:fontFamily="@font/fa_light"
         android:paddingLeft="16dp"
         android:paddingTop="16dp"
         android:paddingRight="16dp"
@@ -58,15 +59,15 @@
         android:textAllCaps="false"
         android:textColor="@color/our_black"
         android:textStyle="normal"
-        android:fontFamily="@font/fa_light"
         tools:text="Join Private" />
 
     <Button
         android:id="@+id/main_menu_quit_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:backgroundTint="@color/lime_700"
+        android:fontFamily="@font/fa_light"
         android:paddingLeft="16dp"
         android:paddingTop="16dp"
         android:paddingRight="16dp"
@@ -75,7 +76,6 @@
         android:textAllCaps="false"
         android:textColor="@color/our_black"
         android:textStyle="normal"
-        android:fontFamily="@font/fa_light"
         tools:text="Quit" />
 
 </LinearLayout>
