@@ -22,18 +22,17 @@
         <TextView
             android:id="@+id/scoreboardText"
             android:layout_width="0dp"
-            android:layout_height="16dp"
-            android:layout_marginBottom="-15dp"
+            android:layout_height="wrap_content"
             android:background="#26000000"
             android:fontFamily="sans-serif"
+            android:paddingTop="2dp"
             android:text="Scoreboard"
             android:textAlignment="center"
             android:textColor="#FFE500"
             android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/scoreBoardLayout"
             app:layout_constraintEnd_toEndOf="@+id/scoreBoardLayout"
-            app:layout_constraintStart_toStartOf="@+id/scoreBoardLayout"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/scoreBoardLayout" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/scoreBoardLayout"
@@ -42,7 +41,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="false"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="60dp"
             android:background="#26000000"
             android:clickable="false"
             android:minWidth="120dp"
@@ -94,7 +93,7 @@
             <FrameLayout
                 android:id="@+id/gameMapLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/moveControllerLayout"
@@ -104,7 +103,7 @@
                 android:layout_alignParentLeft="false"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="14dp"/>
+                android:layout_marginRight="14dp" />
         </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -120,7 +119,7 @@
             android:id="@+id/menuLayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#FFAFAF"
+            android:background="@color/our_black"
             android:orientation="vertical"
             android:padding="3dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -128,7 +127,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"/>
+            app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
