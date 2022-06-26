@@ -44,7 +44,7 @@ class StartActivity : AppCompatActivity() {
                         Log.d(TAG, "Login")
                         supportFragmentManager.beginTransaction().replace(R.id.left_column_fl, EmptyFragment()).commit()
                         supportFragmentManager.beginTransaction().replace(R.id.center_column_fl, LoginFragment()).commit()
-                        supportFragmentManager.beginTransaction().replace(R.id.right_column_fl, IPFragment()).commit()
+                        supportFragmentManager.beginTransaction().replace(R.id.right_column_fl, EmptyFragment()).commit()
                     }
                     is UIState.Start -> {
                         Log.d(TAG, "Start")
@@ -56,7 +56,7 @@ class StartActivity : AppCompatActivity() {
                         Log.d(TAG, "Register")
                         supportFragmentManager.beginTransaction().replace(R.id.left_column_fl, EmptyFragment()).commit()
                         supportFragmentManager.beginTransaction().replace(R.id.center_column_fl, RegisterFragment()).commit()
-                        supportFragmentManager.beginTransaction().replace(R.id.right_column_fl, IPFragment()).commit()
+                        supportFragmentManager.beginTransaction().replace(R.id.right_column_fl, EmptyFragment()).commit()
                     }
                     is UIState.Menu -> {
                         Log.d(TAG, "Menu")

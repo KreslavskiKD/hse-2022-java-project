@@ -8,7 +8,6 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -47,13 +46,10 @@ class StartMenuFragment : Fragment() {
         }
 
         connectBtn.setOnClickListener {
-            val alert: AlertDialog.Builder = AlertDialog.Builder(context, AlertDialog.THEME_DEVICE_DEFAULT_DARK)
+            val alert: AlertDialog.Builder = AlertDialog.Builder(context)
             var address : String
             val edittext = EditText(context)
             edittext.setText(GameContext.getServerAddress())
-            edittext.setTextColor(resources.getColor(R.color.white))
-            edittext.imeOptions = EditorInfo.IME_FLAG_NO_EXTRACT_UI
-            edittext.setSingleLine()
             alert.setMessage("")
             alert.setTitle("Enter server address")
 

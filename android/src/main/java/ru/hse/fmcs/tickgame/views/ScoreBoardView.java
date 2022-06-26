@@ -33,7 +33,7 @@ public class ScoreBoardView extends TableLayout {
             }
         });
 
-        this.setPadding(30, 15, 30, 30);
+        this.setPadding(30, 5, 30, 30);
         this.removeAllViews();
 
         int padding = 7;

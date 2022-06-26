@@ -79,8 +79,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/our_black"
-                android:paddingTop="20dp"
-                android:paddingBottom="15dp" />
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp" />
 
         </RelativeLayout>
 
