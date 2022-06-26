@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import ru.hse.fmcs.tickgame.GameContext
 import ru.hse.fmcs.tickgame.R
 import ru.hse.fmcs.tickgame.activities.RoomActivity
 import ru.hse.fmcs.tickgame.viewmodels.StartActivityViewModel
@@ -33,6 +35,10 @@ class MainMenuFragment : Fragment() {
             val alert: AlertDialog.Builder = AlertDialog.Builder(context)
             var lobbyId : String
             val edittext = EditText(context)
+            edittext.setText(GameContext.getServerAddress())
+            edittext.setTextColor(resources.getColor(R.color.white))
+            edittext.imeOptions = EditorInfo.IME_FLAG_NO_EXTRACT_UI
+            edittext.setSingleLine()
             alert.setMessage("")
             alert.setTitle("Enter room id")
 
