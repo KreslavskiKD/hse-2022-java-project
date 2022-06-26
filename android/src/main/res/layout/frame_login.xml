@@ -16,15 +16,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="Login"
+        android:imeOptions="flagNoExtractUi"
         android:inputType="textVisiblePassword"
         android:lines="1"
-        android:imeOptions="flagNoExtractUi"
         android:paddingLeft="16dp"
         android:paddingTop="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/lime_500"
+        android:textColorHint="@color/lime_200" />
 
     <EditText
         android:id="@+id/password_edit_text"
@@ -32,15 +32,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Password"
+        android:imeOptions="flagNoExtractUi"
         android:inputType="textPassword"
         android:lines="1"
-        android:imeOptions="flagNoExtractUi"
         android:paddingLeft="16dp"
         android:paddingTop="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/lime_700"
+        android:textColorHint="@color/lime_200" />
 
     <TextView
         android:id="@+id/txtInfo"
@@ -75,7 +75,7 @@
             android:paddingRight="16dp"
             android:text="Register"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:textColor="@color/our_black"
             android:textStyle="normal"
             tools:text="Register" />
 
@@ -93,7 +93,7 @@
             android:paddingRight="16dp"
             android:text="Login"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:textColor="@color/our_black"
             android:textStyle="normal"
             tools:text="Login" />
 
@@ -111,7 +111,7 @@
             android:paddingRight="16dp"
             android:text="Quit"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:textColor="@color/our_black"
             android:textStyle="normal"
             tools:text="Quit" />
 

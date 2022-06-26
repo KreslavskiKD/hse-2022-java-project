@@ -39,7 +39,7 @@
         android:paddingBottom="16dp"
         android:text="Join Public"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@color/our_black"
         android:textStyle="normal"
         tools:text="Join Public" />
 
@@ -55,7 +55,7 @@
         android:paddingBottom="16dp"
         android:text="Join Private"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@color/our_black"
         android:textStyle="normal"
         tools:text="Join Private" />
 
@@ -71,7 +71,7 @@
         android:paddingBottom="16dp"
         android:text="Quit"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@color/our_black"
         android:textStyle="normal"
         tools:text="Quit" />
 

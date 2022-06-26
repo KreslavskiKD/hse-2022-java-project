@@ -84,6 +84,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:fontFamily="@font/fa_thin_100"
             android:text="Players"
             android:textColor="@color/white"

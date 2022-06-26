@@ -26,6 +26,7 @@ import ru.hse.fmcs.Room;
 import ru.hse.fmcs.RoomServiceGrpc;
 import ru.hse.fmcs.tickgame.GameContext;
 import ru.hse.fmcs.tickgame.R;
+import ru.hse.fmcs.tickgame.views.PlayerView;
 
 
 public class RoomActivity extends Activity {
@@ -86,6 +87,10 @@ public class RoomActivity extends Activity {
         stub.joinToRoom(req, clientObserver);
 
         TextView roomNameTextView = findViewById(R.id.roomText);
+
+        if(roomName.isEmpty()) {
+            roomName = "Public room";
+        }
         roomNameTextView.setText(roomName);
 
         roomLogLayout = findViewById(R.id.roomLogLayout);
@@ -224,9 +229,7 @@ public class RoomActivity extends Activity {
             for (GameObject.Player player : players) {
                 String login = player.getLogin();
                 int color = Color.parseColor(player.getColor());
-                TextView tv = generateView(playersLayout.getContext(), login, color);
-                tv.setPadding(15, 15, 15, 15);
-                playersLayout.addView(tv);
+                playersLayout.addView(new PlayerView(playersLayout.getContext(), login, color));
             }
             numberPlayersToStartView.setText(players.size() + "/" + numberPlayersToStart);
         }
