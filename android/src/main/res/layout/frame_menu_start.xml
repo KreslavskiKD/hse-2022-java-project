@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ll_start"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
     android:layout_centerHorizontal="true"
+    android:background="@color/our_black"
     android:orientation="vertical"
     android:paddingLeft="16dp"
+    android:paddingTop="5dp"
     android:paddingRight="16dp"
-    android:paddingBottom="16dp"
-    android:paddingTop="16dp"
-    android:background="@color/our_black">
+    android:paddingBottom="16dp">
 
     <TextView
         android:id="@+id/start_game_name_txt"
@@ -40,7 +39,7 @@
         android:paddingBottom="16dp"
         android:text="Login"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@color/our_black"
         android:textStyle="normal"
         tools:text="Login" />
 
@@ -57,7 +56,7 @@
         android:paddingBottom="16dp"
         android:text="Register"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@color/our_black"
         android:textStyle="normal"
         tools:text="Register" />
 
@@ -74,7 +73,7 @@
         android:paddingBottom="16dp"
         android:text="@string/ctaps"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@color/our_black"
         android:textStyle="normal"
         tools:text="@string/ctaps" />
 
@@ -91,7 +90,7 @@
         android:paddingBottom="16dp"
         android:text="Quit"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@color/our_black"
         android:textStyle="normal"
         tools:text="Quit" />
 

@@ -119,12 +119,29 @@ public class GameActivity extends Activity  {
 
         // add buttons to menu
         Button leaveBtn = new Button(menuLayout.getContext());
-        leaveBtn.setText("Surrender");
+        leaveBtn.setText("Leave");
         leaveBtn.setOnClickListener(view -> {
                     end();
                 }
         );
+
         menuLayout.addView(leaveBtn);
+
+        Button clearAttacksBtn = new Button(menuLayout.getContext());
+        clearAttacksBtn.setText("Clear Attacks");
+        clearAttacksBtn.setOnClickListener(view -> {
+            Game.ClearAttacksRequest r = Game.ClearAttacksRequest.newBuilder().setPlayerLogin(GameContext.getLogin()).build();
+                    GameServiceGrpc.GameServiceFutureStub futureStub = GameServiceGrpc.newFutureStub(channel);
+                    futureStub.clearAttacks(r);
+                    gameController.clearAttacks();
+                    runOnUiThread(() -> {
+                        gameController.drawMap();
+                    });
+                }
+        );
+        menuLayout.addView(clearAttacksBtn);
+
+
 
         // add scoreboard
         scoreBoardLayout.addView(scoreBoardView);
@@ -137,6 +154,7 @@ public class GameActivity extends Activity  {
         channel.shutdownNow();
         super.onDestroy();
     }
+
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {

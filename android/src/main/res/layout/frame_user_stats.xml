@@ -27,17 +27,17 @@
             android:gravity="center_horizontal"
             android:text="You are  logged in as:"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/lime_700"
             tools:text="You are  logged in as:" />
 
         <TextView
             android:id="@+id/nickname_field"
-            tools:text="Nickname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:gravity="center_horizontal"
-            android:textColor="@color/white"/>
+            android:textAlignment="center"
+            android:textColor="@color/lime_700"
+            tools:text="Nickname" />
     </LinearLayout>
 
     <LinearLayout
@@ -53,17 +53,17 @@
             android:gravity="center_horizontal"
             android:text="You are connected to:"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/lime_700"
             tools:text="You are connected to:" />
 
         <TextView
             android:id="@+id/ip_field"
-            tools:text="ip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:gravity="center_horizontal"
-            android:textColor="@color/white"/>
+            android:textAlignment="center"
+            android:textColor="@color/lime_700"
+            tools:text="ip" />
     </LinearLayout>
 
 

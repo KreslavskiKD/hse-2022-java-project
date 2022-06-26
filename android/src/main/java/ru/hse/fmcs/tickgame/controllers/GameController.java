@@ -3,6 +3,7 @@ package ru.hse.fmcs.tickgame.controllers;
 
 import android.graphics.Color;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.grpc.ManagedChannel;
@@ -106,6 +107,10 @@ public class GameController implements OnSelectBlockListener, OnMoveListener {
             }
         }
         drawMap();
+    }
+
+    public synchronized void clearAttacks() {
+        playerMoveList = new ArrayList<>();
     }
 
     static class SelectedBlock {
