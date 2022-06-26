@@ -18,21 +18,20 @@
         android:id="@+id/game_name_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
         android:fontFamily="@font/fa_thin_100"
         android:minWidth="40dp"
-        android:minHeight="25dp"
+        android:minHeight="50dp"
         android:text="@string/app_name"
         android:textColor="@color/white"
-        android:textSize="35sp"
-        tools:ignore="MissingConstraints" />
+        android:textSize="40sp"
+        tools:ignore="MissingConstraints"
+        android:layout_marginTop="50dp"/>
 
     <Button
         android:id="@+id/join_public"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@color/our_grey"
+        android:backgroundTint="@color/lime_700"
         android:paddingLeft="16dp"
         android:paddingTop="20dp"
         android:paddingRight="16dp"
@@ -41,6 +40,8 @@
         android:textAllCaps="false"
         android:textColor="@color/our_black"
         android:textStyle="normal"
+        android:fontFamily="@font/fa_light"
+        android:layout_marginTop="50dp"
         tools:text="Join Public" />
 
     <Button
@@ -48,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/our_grey"
+        android:backgroundTint="@color/lime_700"
         android:paddingLeft="16dp"
         android:paddingTop="16dp"
         android:paddingRight="16dp"
@@ -57,6 +58,7 @@
         android:textAllCaps="false"
         android:textColor="@color/our_black"
         android:textStyle="normal"
+        android:fontFamily="@font/fa_light"
         tools:text="Join Private" />
 
     <Button
@@ -64,7 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/our_grey"
+        android:backgroundTint="@color/lime_700"
         android:paddingLeft="16dp"
         android:paddingTop="16dp"
         android:paddingRight="16dp"
@@ -73,6 +75,7 @@
         android:textAllCaps="false"
         android:textColor="@color/our_black"
         android:textStyle="normal"
+        android:fontFamily="@font/fa_light"
         tools:text="Quit" />
 
 </LinearLayout>
