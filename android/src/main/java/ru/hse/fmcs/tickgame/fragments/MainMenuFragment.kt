@@ -32,10 +32,9 @@ class MainMenuFragment : Fragment() {
         val joinPrivate : Button = view.findViewById(R.id.join_private)
         joinPrivate.setOnClickListener {
 
-            val alert: AlertDialog.Builder = AlertDialog.Builder(context)
+            val alert: AlertDialog.Builder = AlertDialog.Builder(context, AlertDialog.THEME_DEVICE_DEFAULT_DARK)
             var lobbyId : String
             val edittext = EditText(context)
-            edittext.setText(GameContext.getServerAddress())
             edittext.setTextColor(resources.getColor(R.color.white))
             edittext.imeOptions = EditorInfo.IME_FLAG_NO_EXTRACT_UI
             edittext.setSingleLine()
