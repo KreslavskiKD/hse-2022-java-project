@@ -2,9 +2,9 @@ package ru.hse.fmcs.tickgame;
 
 public class GameContext {
     private static String login;
-    private static String serverAddress = "192.168.0.104";
-    private static int roomPort = 8080;
-    private static int loginPort = 8080;
+    private static String serverAddress = "194.87.95.226";
+    private static int roomPort = 6433;
+    private static int loginPort = 6433;
 
     public static String getServerAddress() {
         return serverAddress;
