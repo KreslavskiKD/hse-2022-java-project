@@ -39,6 +39,6 @@ _________________________________________________________
 
 _________________________________________________________
 ## Сервер:
-Кода сервера находится (тут)[https://github.com/naumtsev/tickbattle-server/tree/server-game-creating]
+Кода сервера находится [тут](https://github.com/naumtsev/tickbattle-server/tree/server-game-creating)
 Сейчас есть развёрнутый сервер по адресу 194.87.95.226
 
